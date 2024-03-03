@@ -3,18 +3,17 @@ import React, { createContext, useState, useEffect } from 'react';
 const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem('loggedIn');
-    if (loggedIn) {
-      setIsLoggedIn(true);
-      console.log('true');
+    const loggedUser = localStorage.getItem('username');
+    if (loggedUser) {
+      setUsername(loggedUser);
     }
-  }, [setIsLoggedIn]);
+  }, [setUsername]);
 
   return (
-    <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <LoginContext.Provider value={{ username, setUsername }}>
       {children}
     </LoginContext.Provider>
   );
