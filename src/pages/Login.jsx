@@ -43,7 +43,6 @@ function Login() {
         ? <h1>Loading...</h1>
         : <div><h1>Anmeldung</h1> <LoginForm onSubmit={handleSubmit}></LoginForm></div>
       }
-      
     </div>
   );
 }
